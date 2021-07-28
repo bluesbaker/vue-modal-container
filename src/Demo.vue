@@ -31,7 +31,7 @@
     </div>
     <div class="block">
       <div class="description">
-        saasdasd
+        The simple panel in the modal-container component [lazy]
       </div>
       <div class="demonstration">
         <span>
