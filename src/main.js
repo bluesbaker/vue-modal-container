@@ -1,4 +1,7 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import vueModalContainer from './plugins/vue-modal-container'
+import Demo from './Demo.vue'
+// styles
+import './assets/scss/main.scss'
 
-createApp(App).mount('#app')
+createApp(Demo).use(vueModalContainer).mount('#app')

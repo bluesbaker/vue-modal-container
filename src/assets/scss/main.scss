@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    height: 100%;
+}
+h1, h2 {
+    font-weight: 100;
+    margin: 10px 15px;
+}
+button {
+  color: #575d61;
+  font-size: 120%;
+  padding: 10px 20px;
+  border: 0px;
+  border-bottom: 2px solid #b1b1b1;
+  border-radius: 7px;
+  &:hover {
+    background: #e7e7e7;
+  }
+}
+span {
+  &.console {
+    font-size: 90%;
+    border-radius: 7px;
+    width: 100%;
+    padding: 15px;
+    background: rgb(238, 238, 238);
+  }
+}
+.demo {
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #575d61;
+    max-width: 800px;
+    .block {
+      display: flex;
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0px 8px 8px 0px rgba(30, 60, 80, 0.068);
+      .description {
+        flex-basis: 70%;
+      }
+      .demonstration {
+        display: flex;
+        flex-basis: 30%;
+        align-items: center;
+        justify-content: flex-end;
+        span {
+          flex: 1;
+        }
+        button {
+          margin-left: 15px;
+        }
+      }
+    }   
+}
+
+.accent {
+  color: rgb(140, 50, 220);
+}
+.reject {
+  color: rgb(220, 50, 130);
+}
+.accept {
+  color: rgb(50, 220, 90);
+}
+.light {
+  color: rgb(100, 100, 100);
+}
