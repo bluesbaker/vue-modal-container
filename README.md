@@ -2,7 +2,7 @@
 
 ## Install
 ```
-npm install vue-modal-container
+~~npm install vue-modal-container~~
 ```
 ## How to use
 ### main.js
