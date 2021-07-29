@@ -40,31 +40,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-from {
+.fade-enter-from, .fade-leave-to {
   opacity: 0;
-  //transform: translateX(500px);
+}
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
 }
 .fade-enter-active {
   transition: all 0.3s ease-out;
 }
-.fade-enter-to {
-  opacity: 1;
-  //transform: translateX(0px);
-}
-.fade-leave-from {
-  opacity: 1;
-  //transform: translateX(0px);
-}
 .fade-leave-active {
   transition: all 0.3s ease-in;
 }
-.fade-leave-to {
-  opacity: 0;
-  //transform: translateX(-500px);
-}
 
 .modal-container__template {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
