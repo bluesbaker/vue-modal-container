@@ -1,73 +1,92 @@
+@import './colors.scss';
+@import './prettyprint.scss';
+
 body {
     display: flex;
-    justify-content: center;
+    justify-content: center;  
+    font-family: Helvetica, Arial, sans-serif;
+    color: $mainColor;
     background: #fff;
     height: 100%;
 }
-h1, h2 {
+h1, h2, h3 {
     font-weight: 100;
     margin: 10px 15px;
 }
+h1 {
+  font-size: 250%;
+}
 button {
   color: #575d61;
-  font-size: 120%;
-  padding: 10px 20px;
+  font-size: 140%;
+  padding: 15px;
   border: 0px;
-  border-bottom: 2px solid #b1b1b1;
-  border-radius: 7px;
-  &:hover {
-    background: #e7e7e7;
+  border-bottom: 3px solid #00000010;
+  &.accept {
+    background: rgba($acceptColor, 0.20);
+  }
+  &.reject {
+    background: rgba($rejectColor, 0.10);
   }
 }
 span {
   &.console {
     font-size: 90%;
     border-radius: 7px;
-    width: 100%;
     padding: 15px;
     background: rgb(238, 238, 238);
+  }
+  &.accept {
+    color: $acceptColor;
+  }
+  &.reject {
+    color: $rejectColor;
+  }
+  &.accent {
+    color: $accentColor;
+  }
+  &.light {
+    color: $mainColor * 2.5;
   }
 }
 .demo {
     display: flex;
     flex-direction: column;
-    font-family: Helvetica, Arial, sans-serif;
-    color: #575d61;
     max-width: 800px;
+    .header {
+      padding-bottom: 20px;
+    }
     .block {
       display: flex;
+      flex-direction: column;      
       background: #fff;
       border-radius: 15px;
-      padding: 20px;
       margin-bottom: 20px;
+      padding: 20px;
       box-shadow: 0px 8px 8px 0px rgba(30, 60, 80, 0.068);
+      h3 {
+        margin: 0px 10px 20px;
+      }
+      p {
+        margin: 0px 10px 10px;        
+      }
       .description {
+        display: flex;
         flex-basis: 70%;
+        align-items: center;
       }
       .demonstration {
+        padding: 20px;
         display: flex;
         flex-basis: 30%;
         align-items: center;
-        justify-content: flex-end;
-        span {
-          flex: 1;
-        }
+        justify-content: center;
         button {
-          margin-left: 15px;
+          flex: 1;
+          margin-top: 20px;
+          transition: 0.2s linear;
+          border-radius: 7px;
         }
       }
     }   
-}
-
-.accent {
-  color: rgb(140, 50, 220);
-}
-.reject {
-  color: rgb(220, 50, 130);
-}
-.accept {
-  color: rgb(50, 220, 90);
-}
-.light {
-  color: rgb(100, 100, 100);
 }
