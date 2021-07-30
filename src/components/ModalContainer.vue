@@ -25,7 +25,7 @@ export default {
     methods: {
         handleClose(self) {
             if(self.target.id == "modalContainer") {
-                isActive.value = false;
+                this.isActive = false;
                 setTimeout(() => {
                     props.close();                  
                 }, 300);
