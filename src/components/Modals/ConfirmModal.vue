@@ -7,8 +7,8 @@
             <span>{{ message }}</span>
         </template>
         <template #buttons>
-            <button @click="onOk(true)" class="btn flex">Ok!</button>
-            <button @click="onOk(false)" class="btn flex">Cancel!</button>
+            <button @click="onOk(true)" class="modal-button accept">ok</button>
+            <button @click="onOk(false)" class="modal-button reject">cancel</button>
         </template>
     </default-modal>
 </template>
@@ -25,11 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn {
-    border: 0;
-    padding: 10px 20px;
-    &.flex {
-        flex: 1;
-    }
+.modal-button {
+    flex: 1;
 }
 </style>
