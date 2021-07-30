@@ -29,7 +29,7 @@
 }
 .tag
 {
-    color: $acceptColor;
+    color: $accentColor;
 }
 .atn
 {
@@ -51,6 +51,11 @@ pre.prettyprint
     border-radius: 7px;
     margin: 0px;
     margin-bottom: 20px;
+    &.inside {
+        padding: 0;
+        background: transparent;
+        margin-bottom: 0;
+    }
 }
 ol.linenums
 {
