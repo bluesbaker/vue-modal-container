@@ -1,4 +1,4 @@
-import { createApp, h } from "vue";
+import { createApp, h } from "vue"
 import ModalContainer from "../components/ModalContainer.vue"
 
 export default {

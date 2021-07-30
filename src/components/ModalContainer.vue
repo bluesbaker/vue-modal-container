@@ -9,32 +9,33 @@
 </template>
 
 <script>
-import { ref } from "vue"
 export default {
     name: "ModalContainer",
+    data() {
+        return {
+            isActive: false
+        }
+    },
     props: {
         close: {
             type: Function,
             default: () => {}
         }
     },
-    setup(props) {
-        const isActive = ref(false);
-        setTimeout(() => {
-            isActive.value = true;
-        }, 100);
-        let handleClose = (self) => {
+    methods: {
+        handleClose(self) {
             if(self.target.id == "modalContainer") {
                 isActive.value = false;
                 setTimeout(() => {
                     props.close();                  
                 }, 300);
             }
-        };
-        return {
-            isActive,
-            handleClose
         }
+    },
+    mounted() {
+        setTimeout(() => {
+            this.isActive = true;
+        }, 100);
     }
 }
 </script>
