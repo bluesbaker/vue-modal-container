@@ -27,7 +27,7 @@ export default {
             if(self.target.id == "modalContainer") {
                 this.isActive = false;
                 setTimeout(() => {
-                    props.close();                  
+                    this.close();                  
                 }, 300);
             }
         }
