@@ -1,60 +1,74 @@
 # vue-modal-container
 
-## Install
-~~npm install vue-modal-container~~
 ## How to use
-### main.js
+### 0. Install package
+~~npm install vue-modal-container~~
+
+### 1. Add vue-modal-container plugin to app
 ```js
-//...
+import { createApp } from "vue"
+import App from "./App.vue"
 import vueModalContainer from "vue-modal-container"
-//...
-Vue.use(vueModalContainer, {
-    // name of global function | "$modal" is default
-    propertyName: "$modal",
-    // name of global component | "ModalContainer" is default
-    componentName: "ModalContainer",
-})
+// ...
+createApp(App).use(vueModalContainer, {
+  // default properties
+  propertyName: "$modal",
+  componentName: "ModalContainer"
+}).mount("#app")
 //...
 ```
 
-### Component in *.vue
+### 2. Create a dialog modal component
 ```vue
 <template>
-    <div>
-        <modal-container>
-            <div class="modal">
-                <span>Hello dialog modal!</span>
-                <button @click="onOk(true)">Ok</button>
-                <button @click="onOk(false)">Cancel</button>
-            </div>
-        </modal-container>
-    </div>
+  <div>
+    <span> {{ message }} </span>
+    <button @click="onOk(true)">ok</button>
+    <button @click="onOk(false)">cancel</button>
+  </div>
 </template>
 
 <script>
 export default {
-    //...
+    name: "DialogModal",
+    props: ["onOk", "message"]
 }
 </script>
+```
 
-<style>
-.modal {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 200px;
-    background: #fff;
-    border: 1px solid #000;
+### 3. Use the $modal global function in component methods
+```vue
+<template>
+  <button @click="showDialog">show dialog</button>
+</template>
+
+<script>
+import DialogModal from "./components/Modals/DialogModal.vue"
+// ...
+export default {
+  name: "Component",
+  data() {
+    return {
+      result: null
+    }
+  },
+  components: {
+    DialogModal
+  },
+  methods: {
+    showDialog() {
+      this.$modal(DialogModal, {
+        title: "The title of dialog",
+        message: "Hello dialog modal!",
+        onOk: (confirm) => {
+          this.result = confirm;
+        }
+      })
+    }
+  }
 }
-</style>
+</script>
 ```
 
-### Compiles and hot-reloads for development(demo)
-```
-npm run serve
-```
-
-### Compiles and minifies for production(demo)
-```
-npm run build-dev
-```
+## Demonstration
+Follow the [link](https://bluesbaker.github.io/vue-modal-container) to watch the demo.
