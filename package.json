@@ -1,6 +1,6 @@
 {
   "name": "vue-modal-container",
-  "description": "The modal container component for Vue3",
+  "description": "The plugin for the Vue3 which provides the use of '$modal' function and 'modal-container' component to show a modal.",
   "version": "0.1.0",
   "private": false,
   "scripts": {
@@ -8,9 +8,9 @@
     "build": "rollup -c rollup.config.js",
     "build-demo": "vue-cli-service build"
   },
-  "module": "lib/vue-modal-container.esm.js",
-  "main": "lib/vue-modal-container.cjs.js",
-  "unpkg": "lib/vue-modal-container.global.js",
+  "module": "lib/vmc.esm.js",
+  "main": "lib/vmc.cjs.js",
+  "unpkg": "lib/vmc.global.js",
   "dependencies": {
     "vue": "^3.1.5"
   },
@@ -21,7 +21,6 @@
     "@vue/compiler-sfc": "^3.1.5",
     "node-sass": "^4.14.1",
     "rollup": "^2.55.1",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-vue": "^6.0.0",
     "sass-loader": "^8.0.2",
