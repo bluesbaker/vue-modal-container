@@ -1,37 +1,44 @@
-import nodeResolve from 'rollup-plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import vuePlugin from 'rollup-plugin-vue'
-import scss from 'rollup-plugin-scss'
-import pkg from './package.json'
+import commonjs from "@rollup/plugin-commonjs"
+import vuePlugin from "rollup-plugin-vue"
+import scss from "rollup-plugin-scss"
+import pkg from "./package.json"
 
 export default {
-  input: 'src/plugins/vue-modal-container.js',
+  input: "src/plugins/vue-modal-container.js",
   output: [
     {
         file: pkg.module,
-        format: 'esm',
-        sourcemap: true
+        format: "esm",
+        sourcemap: true,
+        globals: {
+          vue: "Vue",
+        }
     },
     {
         file: pkg.main,
-        format: 'cjs',
-        sourcemap: true
+        format: "cjs",
+        sourcemap: true,
+        globals: {
+          vue: "Vue",
+        }
     },
     {
         file: pkg.unpkg,
-        format: 'umd',
-        name: 'VueModalContainer',
+        format: "umd",
+        name: "VueModalContainer",
         sourcemap: true,
         globals: {
-          vue: 'Vue',
+          vue: "Vue",
         }
     }
   ],
   plugins: [
-    vuePlugin(),
     scss(),
-    nodeResolve(),
+    vuePlugin({
+      css: true,
+      compileTemplate: true,
+    }),
     commonjs(),
   ],
-  external: ['vue']
+  external: ["vue"]
 }
