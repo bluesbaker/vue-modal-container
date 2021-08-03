@@ -12,7 +12,6 @@
   "main": "lib/vue-modal-container.cjs.js",
   "unpkg": "lib/vue-modal-container.global.js",
   "dependencies": {
-    "core-js": "^3.15.2",
     "vue": "^3.1.5"
   },
   "devDependencies": {
