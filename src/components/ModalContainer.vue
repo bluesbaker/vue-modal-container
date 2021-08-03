@@ -1,6 +1,6 @@
 <template>
 <transition name="fade" mode="out-in">
-    <div class="modal-container__template" @click="handleClose" id="modalContainer" v-show="isActive">
+    <div class="modal-container__template" :style="containerClass" @click="handleClose" id="modalContainer" v-show="options.isShow">
         <div class="modal">
             <slot></slot>
         </div>
@@ -13,34 +13,37 @@ export default {
     name: "ModalContainer",
     data() {
         return {
-            isActive: false
+            containerClass: {
+                position: "fixed",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "rgba(0, 0, 0, 0.5)",
+                zIndex: "100"
+            }
         }
     },
     props: {
-        close: {
-            type: Function,
-            default: () => {}
+        options: {
+            type: Object,
+            default: {}
         }
     },
     methods: {
         handleClose(self) {
             if(self.target.id == "modalContainer") {
-                this.isActive = false;
-                setTimeout(() => {
-                    this.close();                  
-                }, 300);
+                this.options.close();
             }
         }
-    },
-    mounted() {
-        setTimeout(() => {
-            this.isActive = true;
-        }, 100);
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
@@ -52,18 +55,5 @@ export default {
 }
 .fade-leave-active {
   transition: all 0.3s ease-in;
-}
-
-.modal-container__template {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 100;
 }
 </style>
