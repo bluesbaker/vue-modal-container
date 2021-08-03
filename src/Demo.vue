@@ -8,8 +8,8 @@
     <h2>Description</h2>
     <div class="block">
       <span>
-        The <span class="accent">vue-modal-container</span> is plugin for the Vue3 which provides 
-        the use of "$modal" global function and "modal-container" component.
+        The <span class="accent">vue-modal-container</span> is plugin for 
+        the Vue3 which provides the use of "$modal" global function and "modal-container" component to show a modal.
       </span>
     </div>
     <h2>Install</h2>
@@ -27,7 +27,7 @@
 import App from "./App.vue"
 import vueModalContainer from "vue-modal-container"
 // ...
-createApp(Demo).use(vueModalContainer, {
+createApp(App).use(vueModalContainer, {
   // default properties
   propertyName: "$modal",
   componentName: "ModalContainer"
