@@ -1,13 +1,27 @@
 {
   "name": "vue-modal-container",
   "description": "The plugin for the Vue3 which provides the use of '$modal' function and 'modal-container' component to show a modal.",
-  "version": "0.1.0",
-  "private": false,
+  "version": "0.1.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build-docs": "vue-cli-service build"
   },
   "main": "src/plugins/vue-modal-container.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluesbaker/vue-modal-container.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "modal"
+  ],
+  "author": "Konstantin <github.com/bluesbaker>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bluesbaker/vue-modal-container/issues"
+  },
+  "homepage": "https://github.com/bluesbaker/vue-modal-container#readme",
   "dependencies": {
     "js-scroll-lock": "^0.3.1"
   },
