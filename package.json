@@ -12,15 +12,16 @@
   "main": "lib/vmc.cjs.js",
   "unpkg": "lib/vmc.global.js",
   "dependencies": {
-    "vue": "^3.1.5"
+    "js-scroll-lock": "^0.3.1",
+    "vue": "^3.2.4"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
-    "@vue/compiler-sfc": "^3.1.5",
+    "@vue/compiler-sfc": "^3.2.4",
     "node-sass": "^4.14.1",
-    "rollup": "^2.55.1",
+    "rollup": "^2.56.2",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-vue": "^6.0.0",
     "sass-loader": "^8.0.2",
