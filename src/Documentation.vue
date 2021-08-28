@@ -1,5 +1,5 @@
 <template>
-  <div class="demo">
+  <div class="documentation__template">
     <div class="header">
       <h1>
         <span class="accent"><span class="accept">vue</span>-modal-container</span>
@@ -99,7 +99,7 @@ export default {
 import ConfirmModal from "./components/Modals/ConfirmModal.vue"
 
 export default {
-  name: 'Demo',
+  name: "Documentation",
   data() {
     return {
       result: null
