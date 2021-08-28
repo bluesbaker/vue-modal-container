@@ -1,4 +1,4 @@
-import { h, reactive, shallowReactive } from "vue"
+import { h, shallowReactive } from "vue"
 import ModalContainer from "../components/ModalContainer.vue"
 import scroll from "js-scroll-lock"
 
@@ -16,7 +16,7 @@ function install(app, options) {
   };
 
   // ModalContainer reactive options
-  let containerOptions = reactive({
+  let containerOptions = shallowReactive({
     isShow: false,
     close: () => {
       containerOptions.isShow = false;
@@ -33,28 +33,29 @@ function install(app, options) {
   // mixins the app and modal container component
   const appRender = app._component.render;
   app._component.render = (_ctx, _cache) => {
-    return h("div", [
-      appRender(_ctx, _cache), 
-      h(ModalContainer,
-        {
-          options: containerOptions
-        },
-        {
-          default() {
-            return h(modalOptions.modal,
-            {
-              ...modalOptions.props,
-              onOk(payload) {
-                if(modalOptions.props.onOk) {
-                  modalOptions.props.onOk(payload);
+    return h("div", 
+      { style: [{width: "100%", height: "100%"}]}, 
+      [ appRender(_ctx, _cache), 
+        h(ModalContainer,
+          {
+            options: containerOptions
+          },
+          {
+            default() {
+              return h(modalOptions.modal,
+              {
+                ...modalOptions.props,
+                onOk(payload) {
+                  if(modalOptions.props.onOk) {
+                    modalOptions.props.onOk(payload);
+                  }
+                  containerOptions.isShow = false;
+                  scroll.unlock();
                 }
-                containerOptions.isShow = false;
-                scroll.unlock();
-              }
-            });
-          }
-        })
-    ]);
+              });
+            }
+          })
+      ]);
   }
 
   // add the $modal(default) function to the global properties 
