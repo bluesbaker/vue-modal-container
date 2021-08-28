@@ -5,26 +5,19 @@
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "rollup -c rollup.config.js",
-    "build-demo": "vue-cli-service build"
+    "build-docs": "vue-cli-service build"
   },
-  "module": "lib/vmc.esm.js",
-  "main": "lib/vmc.cjs.js",
-  "unpkg": "lib/vmc.global.js",
+  "main": "src/plugins/vue-modal-container.js",
   "dependencies": {
-    "js-scroll-lock": "^0.3.1",
-    "vue": "^3.2.4"
+    "js-scroll-lock": "^0.3.1"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^20.0.0",
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
     "@vue/compiler-sfc": "^3.2.4",
     "node-sass": "^4.14.1",
-    "rollup": "^2.56.2",
-    "rollup-plugin-scss": "^3.0.0",
-    "rollup-plugin-vue": "^6.0.0",
     "sass-loader": "^8.0.2",
+    "vue": "^3.2.4",
     "vue-loader-v16": "^16.0.0-beta.5.4"
   }
 }
