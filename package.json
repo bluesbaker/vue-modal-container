@@ -21,9 +21,9 @@
   "bugs": {
     "url": "https://github.com/bluesbaker/vue-modal-container/issues"
   },
-  "homepage": "https://github.com/bluesbaker/vue-modal-container#readme",
+  "homepage": "https://bluesbaker.github.io/vue-modal-container",
   "dependencies": {
-    "js-scroll-lock": "^0.3.1"
+    "js-scroll-lock": "^0.3.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.13",
