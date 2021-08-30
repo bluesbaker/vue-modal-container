@@ -2,7 +2,9 @@
 
 ## How to use
 ### 0. Install package
-~~npm install vue-modal-container~~
+```
+npm install vue-modal-container
+```
 
 ### 1. Add vue-modal-container plugin to app
 ```js
