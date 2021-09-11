@@ -1,7 +1,7 @@
 {
   "name": "vue-modal-container",
   "description": "The plugin for the Vue3 which provides the use of '$modal' function and 'modal-container' component to show a modal.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build-docs": "vue-cli-service build"
