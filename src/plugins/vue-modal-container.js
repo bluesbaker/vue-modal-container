@@ -15,26 +15,25 @@ function install(app, options) {
     ...options
   };
 
-  // ModalContainer reactive options
-  let containerOptions = shallowReactive({
-    isShow: false,
-    close: () => {
-      containerOptions.isShow = false;
-      scroll.unlock();
-    }
-  });
-
   // Modal* reactive options
   let modalOptions = shallowReactive({
     modal: "div",
-    props: {}
+    props: {
+      onOk: () => {}
+    }
+  });
+
+  // ModalContainer reactive options
+  let containerOptions = shallowReactive({
+    isShow: false,
+    close: closeHandler
   });
 
   // mixins the app and modal container component
   const appRender = app._component.render;
   app._component.render = (_ctx, _cache) => {
     return h("div", 
-      { style: [{width: "100%", height: "100%"}]}, 
+      { style: [{width: "100%", height: "100%"}] }, 
       [ appRender(_ctx, _cache), 
         h(ModalContainer,
           {
@@ -49,8 +48,7 @@ function install(app, options) {
                   if(modalOptions.props.onOk) {
                     modalOptions.props.onOk(payload);
                   }
-                  containerOptions.isShow = false;
-                  scroll.unlock();
+                  closeHandler();
                 }
               });
             }
@@ -60,7 +58,7 @@ function install(app, options) {
 
   // add the $modal(default) function to the global properties 
   app.config.globalProperties[pluginOptions.propertyName] = (dialogModal, props) => {    
-    scroll.lock();   
+    scroll.lock();
     modalOptions.modal = dialogModal;
     modalOptions.props = props;
     containerOptions.isShow = true;  
@@ -69,6 +67,16 @@ function install(app, options) {
   // (optional) registration the ModalContainer(default) as a global component
   if(pluginOptions.globalComponent) {
     app.component(pluginOptions.componentName, ModalContainer);
+  }
+
+  // when the modal container closed
+  function closeHandler() {
+    scroll.unlock();
+    containerOptions.isShow = false;
+    modalOptions.modal = "div";
+    modalOptions.props = {
+      onOk: () => {}
+    };
   }
 }
 
