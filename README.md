@@ -1,5 +1,5 @@
 # vue-modal-container
-
+> The plugin for the Vue3 which provides the use of '$modal' function and 'modal-container' component to show a modal window.
 ## How to use
 ### 0. Install package
 ```
